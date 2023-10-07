@@ -30,9 +30,10 @@ This query accomplishes the following using a combination of subqueries, unions,
 
 ### Check format and error:
 Make test, make format, and make lint are run in actions. The commands run smoothly.  
-<img width="1180" alt="Screenshot 2023-10-07 at 7 06 49 PM" src="https://github.com/nogibjj/Fall2023_IDS706_MiniProject6_JiayiZhou/assets/143651921/241f7632-87da-4472-a697-1dfa9be7570c">
+
 
 ### Visualization of Process:
-![process (3)](https://github.com/nogibjj/Fall2023_IDS706_MiniProject5_JiayiZhou/assets/143651921/f0480b87-bc09-49f4-9d9a-4f483343284c)
+![Miniproject6](https://github.com/nogibjj/Fall2023_IDS706_MiniProject6_JiayiZhou/assets/143651921/4e028eb0-692d-4399-b865-2be4df73e2f4)
+
 
 
