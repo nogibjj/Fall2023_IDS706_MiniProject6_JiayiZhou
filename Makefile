@@ -43,4 +43,5 @@ transform_load:
 	python main.py transform_load
 
 query:
-	python main.py general_query "SELECT team AS Team, COUNT(*) AS TotalMatchesPlayed, SUM(CASE WHEN outcome = 'team1' THEN 1 ELSE 0 END) AS TotalMatchesWon FROM (SELECT team1 AS team, 'team1' AS outcome FROM default.MatchesDB_ONE UNION ALL SELECT team2 AS team, 'team2' AS outcome FROM default.MatchesDB_ONE) AS MatchResults JOIN (SELECT team1 AS team, 'team1' AS outcome FROM default.WWC_MATCHES_2_DB UNION ALL SELECT team2 AS team, 'team2' AS outcome FROM default.WWC_MATCHES_2_DB) AS ActualResults ON MatchResults.team = ActualResults.team GROUP BY Team ORDER BY TotalMatchesPlayed DESC;"
+	python main.py general_query "SELECT team AS Team, COUNT(*) AS TotalMatchesPlayed FROM (SELECT team1 AS team FROM default.matchesdb_one UNION ALL SELECT team2 AS team FROM default.matchesdb_one UNION ALL SELECT team1 AS team FROM default.wwc_matches_2_db UNION ALL SELECT team2 AS team FROM default.wwc_matches_2_db) AS AllTeams GROUP BY Team ORDER BY TotalMatchesPlayed DESC;"
+
