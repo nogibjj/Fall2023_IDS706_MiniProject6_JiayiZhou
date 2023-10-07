@@ -43,15 +43,4 @@ transform_load:
 	python main.py transform_load
 
 query:
-	python main.py general_query "SELECT MatchDate, t1.TeamName AS Team1Name, t2.TeamName AS Team2Name,
-            m.Team1Goals, m.Team2Goals, m.Team1Goals + m.Team2Goals AS TotalGoals
-            FROM default.matchesdb_one AS m
-            JOIN team_names AS t1 ON m.Team1 = t1.TeamID
-            JOIN team_names AS t2 ON m.Team2 = t2.TeamID
-            UNION ALL
-            SELECT MatchDate, t1.TeamName AS Team1Name, t2.TeamName AS Team2Name,
-            m.Team1Goals, m.Team2Goals, m.Team1Goals + m.Team2Goals AS TotalGoals
-            FROM default.wwc_matches_2_db AS m
-            JOIN team_names AS t1 ON m.Team1 = t1.TeamID
-            JOIN team_names AS t2 ON m.Team2 = t2.TeamID
-            ORDER BY MatchDate;"
+	python main.py general_query "SELECT MatchDate, t1.TeamName AS Team1Name, t2.TeamName AS Team2Name, m.Team1Goals, m.Team2Goals, m.Team1Goals + m.Team2Goals AS TotalGoals FROM default.matchesdb_one AS m JOIN team_names AS t1 ON m.Team1 = t1.TeamID JOIN team_names AS t2 ON m.Team2 = t2.TeamID UNION ALL SELECT MatchDate, t1.TeamName AS Team1Name, t2.TeamName AS Team2Name, m.Team1Goals, m.Team2Goals, m.Team1Goals + m.Team2Goals AS TotalGoals FROM default.wwc_matches_2_db AS m JOIN team_names AS t1 ON m.Team1 = t1.TeamID JOIN team_names AS t2 ON m.Team2 = t2.TeamID ORDER BY MatchDate;"
