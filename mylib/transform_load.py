@@ -1,5 +1,5 @@
 """
-Transforms and Loads data into the local SQLite3 database
+Transforms and Loads data into the Azure Databricks database
 """
 import os
 from databricks import sql
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # load the csv file and insert into databricks
 def load(dataset="data/wwc_matches_1.csv", dataset2="data/wwc_matches_2.csv"):
-    """Transforms and Loads data into the local SQLite3 database"""
+    """Transforms and Loads data into the Azure Databricks database"""
     df = pd.read_csv(dataset, delimiter=",", skiprows=1)
     df2 = pd.read_csv(dataset2, delimiter=",", skiprows=1)
     load_dotenv()
@@ -22,10 +22,8 @@ def load(dataset="data/wwc_matches_1.csv", dataset2="data/wwc_matches_2.csv"):
         access_token=access_token,
     ) as connection:
         c = connection.cursor()
-        # INSERT TAKES TOO LONG
         c.execute("SHOW TABLES FROM default LIKE 'wwc_matches_1*'")
         result = c.fetchall()
-        # takes too long so not dropping anymore
         # c.execute("DROP TABLE IF EXISTS MatchesDB_ONE")
         if not result:
             c.execute(
