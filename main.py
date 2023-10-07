@@ -9,7 +9,7 @@ from mylib.query import (
 
 
 def handle_arguments(args):
-    """add action based on inital calls"""
+    """add action based on inital call"""
     parser = argparse.ArgumentParser(description="Complex SQL query script")
     parser.add_argument(
         "action",
